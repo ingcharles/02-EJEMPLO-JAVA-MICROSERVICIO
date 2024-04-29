@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>expel-catalogo-domain-service</artifactId>
+  <modelVersion>4.0.0</modelVersion>
+  <modules>
+    <module>expel-catalogo-domain-application-service</module>
+    <module>expel-catalogo-domain-core-service</module>
+  </modules>
+  <packaging>pom</packaging>
+  <parent>
+    <artifactId>expel-catalogo-juridico-service</artifactId>
+    <groupId>ec.gob.funcionjudicial.expel</groupId>
+    <relativePath>../pom.xml</relativePath>
+    <version>2.0.1</version>
+  </parent>
+</project>

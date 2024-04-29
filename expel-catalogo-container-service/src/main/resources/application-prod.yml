@@ -1,0 +1,7 @@
+---
+spring:
+  application:
+    name: expel-catalogo-juridico-service
+  config:
+    import: optional:configserver:http://${CJ_EXPEL_IP_SERVER}:8088
+
