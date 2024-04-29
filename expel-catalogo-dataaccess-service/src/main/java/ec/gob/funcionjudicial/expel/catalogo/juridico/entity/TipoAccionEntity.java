@@ -43,19 +43,19 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "prueba", schema = "esq_prueba")
+@Table(name = "localizacion", schema = "esq_catalogo")
 @Entity
 public class TipoAccionEntity {
 
   @Id
-  @NotBlank(message = "{TipoAccion.id.not_blank}")
-  @Column(name = "idtipoaccion", nullable = false)
-  private Integer idTipoAccion;
+  @NotBlank(message = "{localizacion.id_localizacion.not_blank}")
+  @Column(name = "id_localizacion", nullable = false)
+  private String idLocalizacion;
 
-  @NotBlank(message = "{catalogo.juridico.TipoAccion.nombre.not_blank}")
-  @Size(max = 100, message = "{TipoAccion.nombreTipoAccion.size}")
-  @Column(name = "nombretipoaccion", length = 100)
-  private String nombreTipoAccion;
+  @NotBlank(message = "{localizacion.nombreLocalizacion.not_blank}")
+  @Size(max = 100, message = "{localizacion.nombreLocalizacion.size}")
+  @Column(name = "nombre_localizacion", length = 100)
+  private String nombreLocalizacion;
 /*
   @NotBlank(message = "{TipoAccion.idMateria.not_blank}")
   @Column(name = "IdMateria", nullable = false)
@@ -69,7 +69,7 @@ public class TipoAccionEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(idTipoAccion);
+    return Objects.hash(idLocalizacion);
   }
 
   @Override
@@ -81,6 +81,6 @@ public class TipoAccionEntity {
       return false;
     }
     TipoAccionEntity that = (TipoAccionEntity) o;
-    return idTipoAccion.equals(that.idTipoAccion);
+    return idLocalizacion.equals(that.idLocalizacion);
   }
 }

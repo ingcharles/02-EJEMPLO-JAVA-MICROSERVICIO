@@ -21,8 +21,8 @@ package ec.gob.funcionjudicial.expel.catalogo.records.response;
  * @since 24/4/2024
  */
 public record TipoAccionResponseRecord(
-    Integer idTipoAccion,
-    String nombreTipoAccion
+    String idLocalizacion,
+    String nombreLocalizacion
 ) {
 
 }

@@ -43,7 +43,7 @@ public class TipoAccionImpl implements TipoAccionRepository {
     return tipoAccionJpaRepository.obtenerPorIdMateria(idMateria)
         .orElseThrow(() -> new TipoAccionException(
             String.format(
-                messageSourceUtil.getMessage("tipoAccion.component.exception.notfound"),
+                messageSourceUtil.getMessage("localizacion.component.exception.notfound"),
                 idMateria)));
   }
 }

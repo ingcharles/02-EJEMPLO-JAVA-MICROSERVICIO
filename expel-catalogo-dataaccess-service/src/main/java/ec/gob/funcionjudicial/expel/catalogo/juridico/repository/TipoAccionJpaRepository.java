@@ -42,7 +42,7 @@ public interface TipoAccionJpaRepository extends JpaRepository<TipoAccionEntity,
           where 
                 ta.estado = 'A' and  ta.idMateria = :idMateria 
       """)*/
-  @Query(value="SELECT new ec.gob.funcionjudicial.expel.catalogo.records.response.TipoAccionResponseRecord(t.idTipoAccion, t.nombreTipoAccion) FROM TipoAccionEntity t") //, nativeQuery=true
+  @Query(value="SELECT new ec.gob.funcionjudicial.expel.catalogo.records.response.TipoAccionResponseRecord(t.idLocalizacion, t.nombreLocalizacion) FROM TipoAccionEntity t") //, nativeQuery=true
   //@Query("SELECT t FROM TblModulosNotificaciones t WHERE t.estado=:estado and t.idUsuario=:idUsuario order by idModuloNotificacion desc")
   Optional<List<TipoAccionResponseRecord>> obtenerPorIdMateria(
       @Param("idMateria") Integer idMateria);
