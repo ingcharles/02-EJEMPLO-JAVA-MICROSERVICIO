@@ -9,6 +9,6 @@ import lombok.Setter;
 @Setter
 public class MateriaTo {
 
-  private Short idMateria;
+  private Short nivelLocalizacion;
   private String nombreMateria;
 }

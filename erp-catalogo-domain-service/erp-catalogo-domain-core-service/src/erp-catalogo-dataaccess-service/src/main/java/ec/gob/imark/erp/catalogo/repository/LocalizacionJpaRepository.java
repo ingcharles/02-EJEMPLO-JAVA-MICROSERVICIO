@@ -40,10 +40,10 @@ public interface LocalizacionJpaRepository extends JpaRepository<LocalizacionEnt
           from 
             LocalizacionEntity ta 
           where 
-                ta.estado = 'A' and  ta.idMateria = :idMateria 
+                ta.estado = 'A' and  ta.nivelLocalizacion = :nivelLocalizacion 
       """)*/
   @Query(value="SELECT new ec.gob.imark.erp.catalogo.records.response.LocalizacionResponseRecord(t.idLocalizacion, t.nombreLocalizacion) FROM LocalizacionEntity t") //, nativeQuery=true
   //@Query("SELECT t FROM TblModulosNotificaciones t WHERE t.estado=:estado and t.idUsuario=:idUsuario order by idModuloNotificacion desc")
   Optional<List<LocalizacionResponseRecord>> obtenerPorNivelLocalizacion(
-      @Param("idMateria") Integer idMateria);
+      @Param("nivelLocalizacion") Integer nivelLocalizacion);
 }

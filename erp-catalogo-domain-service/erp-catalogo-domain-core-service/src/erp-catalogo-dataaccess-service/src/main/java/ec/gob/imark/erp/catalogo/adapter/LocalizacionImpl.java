@@ -39,11 +39,11 @@ public class LocalizacionImpl implements LocalizacionRepository {
   private final MessageSourceUtil messageSourceUtil;
 
   @Override
-  public List<LocalizacionResponseRecord> obtenerPorNivelLocalizacion(Integer idMateria) {
-    return LocalizacionJpaRepository.obtenerPorNivelLocalizacion(idMateria)
+  public List<LocalizacionResponseRecord> obtenerPorNivelLocalizacion(Integer nivelLocalizacion) {
+    return LocalizacionJpaRepository.obtenerPorNivelLocalizacion(nivelLocalizacion)
         .orElseThrow(() -> new LocalizacionException(
             String.format(
                 messageSourceUtil.getMessage("localizacion.component.exception.notfound"),
-                idMateria)));
+                nivelLocalizacion)));
   }
 }

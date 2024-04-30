@@ -26,6 +26,6 @@ import java.util.List;
 public interface LocalizacionRepository {
 
   List<LocalizacionResponseRecord> obtenerPorNivelLocalizacion(
-      Integer idMateria);
+      Integer nivelLocalizacion);
 
 }

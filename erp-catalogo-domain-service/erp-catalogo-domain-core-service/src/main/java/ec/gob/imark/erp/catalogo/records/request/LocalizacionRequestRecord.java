@@ -25,8 +25,8 @@ import lombok.Builder;
  */
 @Builder
 public record LocalizacionRequestRecord(
-    @NotNull(message = "{idMateria.not_null}")
-    Integer idMateria
+    @NotNull(message = "{nivelLocalizacion.not_null}")
+    Integer nivelLocalizacion
 ) {
 
 

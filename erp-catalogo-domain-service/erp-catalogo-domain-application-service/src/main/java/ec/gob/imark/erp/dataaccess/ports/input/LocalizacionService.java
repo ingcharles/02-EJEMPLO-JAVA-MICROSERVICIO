@@ -25,5 +25,5 @@ import java.util.List;
  */
 public interface LocalizacionService {
   List<LocalizacionResponseRecord> obtenerPorNivelLocalizacion(
-      Integer idMateria);
+      Integer nivelLocalizacion);
 }

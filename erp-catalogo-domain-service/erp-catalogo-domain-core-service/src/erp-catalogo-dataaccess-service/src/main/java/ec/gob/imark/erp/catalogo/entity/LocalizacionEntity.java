@@ -53,9 +53,9 @@ public class LocalizacionEntity {
   @Column(name = "nombre_localizacion", length = 100)
   private String nombreLocalizacion;
 /*
-  @NotBlank(message = "{Localizacion.idMateria.not_blank}")
+  @NotBlank(message = "{Localizacion.nivelLocalizacion.not_blank}")
   @Column(name = "IdMateria", nullable = false)
-  private Integer idMateria;
+  private Integer nivelLocalizacion;
 
   @NotNull(message = "Localizacion.estado.not_null")
   @Size(max = 1, message = "{Localizacion.estado.size}")

@@ -45,13 +45,11 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
-      #dialect: org.hibernate.dialect.PostgreSQL95Dialect
     properties:
       hibernate:
         format_sql: true
         default_schema: "plataformadb"
         globally_quoted_identifiers: true
-        dialect: org.hibernate.dialect.PostgreSQLDialect
   defer-datasource-initialization: false
   sql:
     init:

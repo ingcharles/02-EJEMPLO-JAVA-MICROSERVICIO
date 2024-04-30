@@ -38,15 +38,15 @@ public class LocalizacionServiceImpl implements LocalizacionService {
   private final LocalizacionRepository localizacionRepository;
 
   /**
-   * Permite obtener el localizacion por idMateria
+   * Permite obtener el localizacion por nivelLocalizacion
    *
-   * @param idMateria
+   * @param nivelLocalizacion
    * @return
    */
   @Override
-  @Cacheable(value = "localizacion", key = "{#idMateria}")
-  public List<LocalizacionResponseRecord> obtenerPorNivelLocalizacion(Integer idMateria) {
-    return localizacionRepository.obtenerPorNivelLocalizacion(idMateria);
+  @Cacheable(value = "localizacion", key = "{#nivelLocalizacion}")
+  public List<LocalizacionResponseRecord> obtenerPorNivelLocalizacion(Integer nivelLocalizacion) {
+    return localizacionRepository.obtenerPorNivelLocalizacion(nivelLocalizacion);
   }
 }
 

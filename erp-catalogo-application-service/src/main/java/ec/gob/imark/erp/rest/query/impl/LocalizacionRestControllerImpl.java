@@ -38,6 +38,6 @@ public class LocalizacionRestControllerImpl implements LocalizacionRestControlle
   @Override
   public List<LocalizacionResponseRecord> obtenerPorNivelLocalizacion(
       LocalizacionRequestRecord localizacionRequestRecord) {
-    return localizacionService.obtenerPorNivelLocalizacion(localizacionRequestRecord.idMateria());
+    return localizacionService.obtenerPorNivelLocalizacion(localizacionRequestRecord.nivelLocalizacion());
   }
 }
