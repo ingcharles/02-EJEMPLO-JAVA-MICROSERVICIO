@@ -99,39 +99,40 @@ logging:
     org.springframework.data.redis: INFO
 redis:
   address: ${CJ_REDIS_IP_SERVER}
-management:
-  zipkin:
-    tracing:
-      endpoint: http://${CJ_ZIPKIN_IP_SERVER}:9411/api/v2/spans
-  tracing:
-    sampling:
-      probability: 1.0
-  metrics:
-    tags:
-      application: ${spring.application.name}
-    export:
-      prometheus:
-        enabled: true
-    distribution:
-      percentiles-histogram:
-        http:
-          server:
-            requests: true
-  endpoints:
-    web:
-      exposure:
-        include: health,info,prometheus,metrics,loggers
-    metrics:
-      enabled: true
-    prometheus:
-      enabled: true
-    info:
-      enabled: true
-    loggers:
-      enabled: true
+#management:
+  #zipkin:
+    #tracing:
+      #endpoint: http://${CJ_ZIPKIN_IP_SERVER}:9411/api/v2/spans
+  #tracing:
+    #sampling:
+      #probability: 1.0
+  #metrics:
+    #tags:
+      #application: ${spring.application.name}
+    #distribution:
+      #percentiles-histogram:
+        #http:
+          #server:
+           #requests: true
+  #endpoints:
+    #web:
+      #exposure:
+        #include: health,info,prometheus,metrics,loggers
+    #metrics:
+      #enabled: true
+    #prometheus:
+      #enabled: true
+    #info:
+      #enabled: true
+    #loggers:
+      #enabled: true
+  #prometheus:
+    #metrics:
+      #export:
+        #enabled: true
 openapi:
   service:
-    title: erp-catalogo-JURIDICO-SERVICE
+    title: ERP-CATALOGO-SERVICE
     version: 1.0.0
     url: http://${CJ_EXPEL_IP_SERVER}:8060/${openapi.service.title}${server.servlet.context-path}
 springdoc:
