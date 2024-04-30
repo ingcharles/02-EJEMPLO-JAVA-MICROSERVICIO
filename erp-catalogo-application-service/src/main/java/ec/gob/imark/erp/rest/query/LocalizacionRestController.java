@@ -6,8 +6,8 @@
  */
 package ec.gob.imark.erp.rest.query;
 
-import ec.gob.imark.erp.catalogo.records.request.TipoAccionRequestRecord;
-import ec.gob.imark.erp.catalogo.records.response.TipoAccionResponseRecord;
+import ec.gob.imark.erp.catalogo.records.request.LocalizacionRequestRecord;
+import ec.gob.imark.erp.catalogo.records.response.LocalizacionResponseRecord;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
@@ -33,12 +33,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @version 1.0.0
  * @since 24/4/2024
  */
-@RequestMapping(value = "/tipoAccion", produces = "application/vnd.api.v1+json")
+@RequestMapping(value = "/localizacion", produces = "application/vnd.api.v1+json")
 @Validated
-public interface TipoAccionRestController {
-  @PostMapping("/obtenerPorIdMateria")
+public interface LocalizacionRestController {
+  @PostMapping("/obtenerPorNivelLocalizacion")
   @ResponseStatus(HttpStatus.OK)
   @Operation(summary = "Permite obtener los datos del tipo de acción.")
-  List<TipoAccionResponseRecord> obtenerPorIdMateria(
-      @Valid @NotNull @RequestBody TipoAccionRequestRecord tipoAccionRequestRecord);
+  List<LocalizacionResponseRecord> obtenerPorNivelLocalizacion(
+      @Valid @NotNull @RequestBody LocalizacionRequestRecord localizacionRequestRecord);
 }

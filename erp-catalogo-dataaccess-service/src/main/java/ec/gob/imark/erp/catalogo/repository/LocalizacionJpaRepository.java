@@ -1,13 +1,14 @@
 /**
  * <p> Proyecto erp-catalogo.
- * <p> Clase TipoAccionJpaRepository 24/4/2024.
+ * <p> Clase LocalizacionJpaRepository 24/4/2024.
  * <p> Copyright 2024 Consejo de la Judicatura.
  * <p> Todos los derechos reservados.
  */
 package ec.gob.imark.erp.catalogo.repository;
 
-import ec.gob.imark.erp.catalogo.entity.TipoAccionEntity;
-import ec.gob.imark.erp.catalogo.records.response.TipoAccionResponseRecord;
+import ec.gob.imark.erp.catalogo.entity.LocalizacionEntity;
+import ec.gob.imark.erp.catalogo.records.response.LocalizacionResponseRecord;
+
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -30,20 +31,20 @@ import org.springframework.stereotype.Repository;
  * @since 24/4/2024
  */
 @Repository
-public interface TipoAccionJpaRepository extends JpaRepository<TipoAccionEntity, Integer> {
+public interface LocalizacionJpaRepository extends JpaRepository<LocalizacionEntity, Integer> {
 
   /*@Query(value = """
           select 
-            new ec.gob.imark.erp.catalogo.records.response.TipoAccionResponseRecord(
+            new ec.gob.imark.erp.catalogo.records.response.LocalizacionResponseRecord(
               ta.idTipoAccion, ta.nombreTipoAccion
             )
           from 
-            TipoAccionEntity ta 
+            LocalizacionEntity ta
           where 
                 ta.estado = 'A' and  ta.idMateria = :idMateria 
       """)*/
-  @Query(value="SELECT new ec.gob.imark.erp.catalogo.records.response.TipoAccionResponseRecord(t.idLocalizacion, t.nombreLocalizacion) FROM TipoAccionEntity t") //, nativeQuery=true
+  @Query(value="SELECT new ec.gob.imark.erp.catalogo.records.response.LocalizacionResponseRecord(t.idLocalizacion, t.nombreLocalizacion) FROM LocalizacionEntity t") //, nativeQuery=true
   //@Query("SELECT t FROM TblModulosNotificaciones t WHERE t.estado=:estado and t.idUsuario=:idUsuario order by idModuloNotificacion desc")
-  Optional<List<TipoAccionResponseRecord>> obtenerPorIdMateria(
+  Optional<List<LocalizacionResponseRecord>> obtenerPorNivelLocalizacion(
       @Param("idMateria") Integer idMateria);
 }

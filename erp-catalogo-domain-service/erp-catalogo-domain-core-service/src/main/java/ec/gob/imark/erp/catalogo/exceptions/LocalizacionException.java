@@ -1,6 +1,6 @@
 /**
  * <p> Proyecto erp-catalogo.
- * <p> Clase TipoAccionException 24/4/2024.
+ * <p> Clase LocalizacionException 24/4/2024.
  * <p> Copyright 2024 Consejo de la Judicatura.
  * <p> Todos los derechos reservados.
  */
@@ -21,13 +21,13 @@ package ec.gob.imark.erp.catalogo.exceptions;
  * @since 24/4/2024
  */
 
-public class TipoAccionException extends GeneralException {
+public class LocalizacionException extends GeneralException {
 
-  public TipoAccionException(String message) {
+  public LocalizacionException(String message) {
     super(message);
   }
 
-  public TipoAccionException(String message, Throwable cause) {
+  public LocalizacionException(String message, Throwable cause) {
     super(message, cause);
   }
 }

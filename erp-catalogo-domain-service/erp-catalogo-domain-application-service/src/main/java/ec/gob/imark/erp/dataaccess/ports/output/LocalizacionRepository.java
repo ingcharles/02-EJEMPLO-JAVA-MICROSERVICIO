@@ -1,13 +1,16 @@
 /**
  * <p> Proyecto erp-catalogo.
- * <p> Clase TipoAccionResponseRecord 24/4/2024.
+ * <p> Clase LocalizacionRepository 24/4/2024.
  * <p> Copyright 2024 Consejo de la Judicatura.
  * <p> Todos los derechos reservados.
  */
-package ec.gob.imark.erp.catalogo.records.response;
+package ec.gob.imark.erp.dataaccess.ports.output;
+
+import ec.gob.imark.erp.catalogo.records.response.LocalizacionResponseRecord;
+import java.util.List;
 
 /**
- * -- AQUI AÑADIR LA DESCRIPCION DEL RECORD --.
+ * -- AQUI AÑADIR LA DESCRIPCION DE LA INTERFACE --.
  *
  * <p>Historial de cambios:
  *
@@ -20,10 +23,9 @@ package ec.gob.imark.erp.catalogo.records.response;
  * @version 1.0.0
  * @since 24/4/2024
  */
-public record TipoAccionResponseRecord(
-    String idLocalizacion,
-    String nombreLocalizacion
-) {
+public interface LocalizacionRepository {
+
+  List<LocalizacionResponseRecord> obtenerPorNivelLocalizacion(
+      Integer idMateria);
 
 }
-

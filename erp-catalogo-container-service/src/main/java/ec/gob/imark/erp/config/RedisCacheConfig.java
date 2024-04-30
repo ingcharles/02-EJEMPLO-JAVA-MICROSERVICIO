@@ -24,7 +24,7 @@ public class RedisCacheConfig {
 
   private static final String MATERIAS_CACHE = "materias";
   private static final String TIPO_DOCUMENTO_CACHE = "tipoDocumento";
-  private static final String TIPO_ACCION_CACHE = "tipoAccion";
+  private static final String TIPO_ACCION_CACHE = "localizacion";
   private static final String DELITOS_CACHE = "delitos";
   private static final Integer MINUTES_EXPIRES_MATERIA = 720;
 

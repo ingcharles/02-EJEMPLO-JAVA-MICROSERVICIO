@@ -1,6 +1,6 @@
 /**
  * <p> Proyecto erp-catalogo.
- * <p> Clase TipoAccionEntity 24/4/2024.
+ * <p> Clase LocalizacionEntity 24/4/2024.
  * <p> Copyright 2024 Consejo de la Judicatura.
  * <p> Todos los derechos reservados.
  */
@@ -41,7 +41,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Table(name = "localizacion", schema = "esq_catalogo")
 @Entity
-public class TipoAccionEntity {
+public class LocalizacionEntity {
 
   @Id
   @NotBlank(message = "{localizacion.idLocalizacion.not_blank}")
@@ -76,7 +76,7 @@ public class TipoAccionEntity {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TipoAccionEntity that = (TipoAccionEntity) o;
+    LocalizacionEntity that = (LocalizacionEntity) o;
     return idLocalizacion.equals(that.idLocalizacion);
   }
 }

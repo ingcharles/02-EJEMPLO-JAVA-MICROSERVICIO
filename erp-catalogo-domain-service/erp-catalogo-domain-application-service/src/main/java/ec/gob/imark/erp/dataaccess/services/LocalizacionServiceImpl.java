@@ -1,14 +1,15 @@
 /**
  * <p> Proyecto erp-catalogo.
- * <p> Clase TipoAccionServiceImpl 24/4/2024.
+ * <p> Clase LocalizacionServiceImpl 24/4/2024.
  * <p> Copyright 2024 Consejo de la Judicatura.
  * <p> Todos los derechos reservados.
  */
 package ec.gob.imark.erp.dataaccess.services;
 
-import ec.gob.imark.erp.catalogo.records.response.TipoAccionResponseRecord;
-import ec.gob.imark.erp.dataaccess.ports.input.TipoAccionService;
-import ec.gob.imark.erp.dataaccess.ports.output.TipoAccionRepository;
+import ec.gob.imark.erp.catalogo.records.response.LocalizacionResponseRecord;
+import ec.gob.imark.erp.dataaccess.ports.input.LocalizacionService;
+import ec.gob.imark.erp.dataaccess.ports.output.LocalizacionRepository;
+
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
@@ -32,20 +33,20 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class TipoAccionServiceImpl implements TipoAccionService {
+public class LocalizacionServiceImpl implements LocalizacionService {
 
-  private final TipoAccionRepository tipoAccionRepository;
+  private final LocalizacionRepository localizacionRepository;
 
   /**
-   * Permite obtener el tipoAccion por idMateria
+   * Permite obtener el localizacion por idMateria
    *
    * @param idMateria
    * @return
    */
   @Override
-  @Cacheable(value = "tipoAccion", key = "{#idMateria}")
-  public List<TipoAccionResponseRecord> obtenerPorIdMateria(Integer idMateria) {
-    return tipoAccionRepository.obtenerPorIdMateria(idMateria);
+  @Cacheable(value = "localizacion", key = "{#idMateria}")
+  public List<LocalizacionResponseRecord> obtenerPorNivelLocalizacion(Integer idMateria) {
+    return localizacionRepository.obtenerPorNivelLocalizacion(idMateria);
   }
 }
 

@@ -1,6 +1,6 @@
 /**
  * <p> Proyecto erp-catalogo.
- * <p> Clase TipoAccionEntity 24/4/2024.
+ * <p> Clase LocalizacionEntity 24/4/2024.
  * <p> Copyright 2024 Consejo de la Judicatura.
  * <p> Todos los derechos reservados.
  */
@@ -41,7 +41,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Table(name = "localizacion", schema = "esq_catalogo")
 @Entity
-public class TipoAccionEntity {
+public class LocalizacionEntity {
 
   @Id
   @NotBlank(message = "{localizacion.idLocalizacion.not_blank}")
@@ -53,12 +53,12 @@ public class TipoAccionEntity {
   @Column(name = "nombre_localizacion", length = 100)
   private String nombreLocalizacion;
 /*
-  @NotBlank(message = "{TipoAccion.idMateria.not_blank}")
+  @NotBlank(message = "{Localizacion.idMateria.not_blank}")
   @Column(name = "IdMateria", nullable = false)
   private Integer idMateria;
 
-  @NotNull(message = "TipoAccion.estado.not_null")
-  @Size(max = 1, message = "{TipoAccion.estado.size}")
+  @NotNull(message = "Localizacion.estado.not_null")
+  @Size(max = 1, message = "{Localizacion.estado.size}")
   @Enumerated(EnumType.STRING)
   @Column(name = "Estado", length = 1)
   private EstadoEnum estado;*/
@@ -76,7 +76,7 @@ public class TipoAccionEntity {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TipoAccionEntity that = (TipoAccionEntity) o;
+    LocalizacionEntity that = (LocalizacionEntity) o;
     return idLocalizacion.equals(that.idLocalizacion);
   }
 }
