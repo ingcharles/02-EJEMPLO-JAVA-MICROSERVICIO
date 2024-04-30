@@ -10,7 +10,6 @@ import ec.gob.imark.erp.catalogo.records.request.LocalizacionRequestRecord;
 import ec.gob.imark.erp.catalogo.records.response.LocalizacionResponseRecord;
 import ec.gob.imark.erp.dataaccess.ports.input.LocalizacionService;
 import ec.gob.imark.erp.rest.query.LocalizacionRestController;
-
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
