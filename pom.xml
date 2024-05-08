@@ -2,7 +2,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <artifactId>ERP-CATALOGO-SERVICE</artifactId>
+  <artifactId>CATALOGO-SERVICE</artifactId>
   <build>
     <plugins>
       <!-- Plugin para configurar la compilación y especificar procesadores de anotación -->
@@ -239,27 +239,27 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <artifactId>erp-catalogo-application-service</artifactId>
+        <artifactId>catalogo-application-service</artifactId>
         <groupId>${project.groupId}</groupId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <artifactId>erp-catalogo-container-service</artifactId>
+        <artifactId>catalogo-container-service</artifactId>
         <groupId>${project.groupId}</groupId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <artifactId>erp-catalogo-dataaccess-service</artifactId>
+        <artifactId>catalogo-dataaccess-service</artifactId>
         <groupId>${project.groupId}</groupId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <artifactId>erp-catalogo-domain-application-service</artifactId>
+        <artifactId>catalogo-domain-application-service</artifactId>
         <groupId>${project.groupId}</groupId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <artifactId>erp-catalogo-domain-core-service</artifactId>
+        <artifactId>catalogo-domain-core-service</artifactId>
         <groupId>${project.groupId}</groupId>
         <version>${project.version}</version>
       </dependency>
@@ -305,7 +305,7 @@
       <organizationUrl>https://www.imark.gob.ec/</organizationUrl>
     </developer>
   </developers>
-  <groupId>ec.gob.imark.erp</groupId>
+  <groupId>ec.gob.imark.catalogo</groupId>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -314,10 +314,10 @@
   </licenses>
   <modelVersion>4.0.0</modelVersion>
   <modules>
-    <module>erp-catalogo-application-service</module>
-    <module>erp-catalogo-container-service</module>
-    <module>erp-catalogo-dataaccess-service</module>
-    <module>erp-catalogo-domain-service</module>
+    <module>catalogo-application-service</module>
+    <module>catalogo-container-service</module>
+    <module>catalogo-dataaccess-service</module>
+    <module>catalogo-domain-service</module>
   </modules>
   <packaging>pom</packaging>
   <parent>
