@@ -43,7 +43,7 @@ public class LocalizacionQueryServiceImpl implements LocalizacionQueryService {
    * Permite obtener el localizacion por nivelLocalizacion
    *
    * @param nivelLocalizacion
-   * @return
+   * @return List<LocalizacionResponseRecord>
    */
   @Override
   @Cacheable(value = "localizacion", key = "{#nivelLocalizacion}")
@@ -55,7 +55,7 @@ public class LocalizacionQueryServiceImpl implements LocalizacionQueryService {
    * Permite obtener el localizacion por nivelLocalizacion
    *
    * @param nivelLocalizacion
-   * @return
+   * @return List<LocalizacionFindByIdResponseRecord>
    */
   @Override
   @Cacheable(value = "findByIdLocalizacion", key = "{#idLocalizacion}")

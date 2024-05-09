@@ -84,11 +84,6 @@
     </dependencies>
   </dependencyManagement>
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <artifactId>CATALOGO-SERVICE</artifactId>
-    <groupId>ec.gob.imark.catalogo</groupId>
-    <version>2.0.1</version>
-  </parent>
   <profiles>
     <profile>
       <build>
@@ -133,4 +128,9 @@
       <id>generar-imagen-docker</id>
     </profile>
   </profiles>
+  <parent>
+    <groupId>ec.gob.imark</groupId>
+    <artifactId>CATALOGO-SERVICE</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
 </project>

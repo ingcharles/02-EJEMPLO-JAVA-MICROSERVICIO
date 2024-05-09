@@ -264,6 +264,11 @@
         <version>${project.version}</version>
       </dependency>
       <dependency>
+        <artifactId>catalogo-common-service</artifactId>
+        <groupId>${project.groupId}</groupId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
         <artifactId>spring-cloud-dependencies</artifactId>
         <groupId>org.springframework.cloud</groupId>
         <scope>import</scope>
@@ -305,7 +310,7 @@
       <organizationUrl>https://www.imark.gob.ec/</organizationUrl>
     </developer>
   </developers>
-  <groupId>ec.gob.imark.catalogo</groupId>
+  <groupId>ec.gob.imark</groupId>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -318,12 +323,14 @@
     <module>catalogo-container-service</module>
     <module>catalogo-dataaccess-service</module>
     <module>catalogo-domain-service</module>
+    <module>catalogo-remote-service</module>
+    <module>catalogo-common-service</module>
   </modules>
   <packaging>pom</packaging>
   <parent>
     <artifactId>spring-boot-starter-parent</artifactId>
     <groupId>org.springframework.boot</groupId>
-    <version>3.2.2</version>
+    <version>3.2.5</version>
   </parent>
   <pluginRepositories>
     <pluginRepository>
@@ -354,7 +361,7 @@
     <maven-pmd-plugin.version>3.21.2</maven-pmd-plugin.version>
     <maven.compiler.release>21</maven.compiler.release>
     <mockito.version>4.5.1</mockito.version>
-    <mssql-version>12.4.2.jre11</mssql-version>
+   <!-- <mssql-version>12.4.2.jre11</mssql-version>-->
     <postgresql.version>42.7.3</postgresql.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <redisson.version>3.25.2</redisson.version>
@@ -406,5 +413,5 @@
     <url>http://10.1.22.164/infraestructura/base/eva-proyecto-base.git</url>
   </scm>
   <url>http://10.1.22.164/infraestructura/base/eva-proceso-service.git</url>
-  <version>2.0.1</version>
+  <version>1.0.0-SNAPSHOT</version>
 </project>

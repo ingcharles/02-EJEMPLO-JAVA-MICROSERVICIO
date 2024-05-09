@@ -8,9 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@EnableJpaRepositories(basePackages = {"ec.gob.imark.catalogo"})
-@EntityScan(basePackages = {"ec.gob.imark.catalogo"})
-@SpringBootApplication(scanBasePackages = "ec.gob.imark.catalogo")
+@EnableJpaRepositories(basePackages = {"ec.gob.imark"})
+@EntityScan(basePackages = {"ec.gob.imark"})
+@SpringBootApplication(scanBasePackages = "ec.gob.imark")
 @OpenAPIDefinition(
     servers = {
       @Server(url = "${openapi.service.url}", description = "URL del Servidor Personalizado")
