@@ -10,6 +10,5 @@ public class GeneralException extends RuntimeException {
     super(message, cause);
   }
 
-  public GeneralException() {
-  }
+
 }
