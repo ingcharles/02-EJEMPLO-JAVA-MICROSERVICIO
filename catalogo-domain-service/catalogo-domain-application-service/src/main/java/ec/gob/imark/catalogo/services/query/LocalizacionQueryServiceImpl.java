@@ -7,46 +7,48 @@
 * @version       1.0.0
 * @date          08-05-2024
 * @name          LocalizacionQueryControllerImpl
-* @package       catalogo-application-services
-* @subpackage    ec.gob.imark.catalogo.controller.query.impl
+* @package       catalogoAllPaginateservices
+* @subpackage   ec.gob.imark.catalogo.controller.query.impl
 *
-* HISTORIAL DE CAMBIOS
-*    1.0.0 - Descripción del cambio inicial - Carlos Anchundia - 08-05-2024
+*    ------------- HISTORIAL DE CAMBIOS ------------
+*          1.0.0 - Descripción del cambio inicial - Carlos Anchundia - 08-05-2024
 *    <!-- Añadir nuevas entradas de cambios aquí -->
 *
 */
-package ec.gob.imark.catalogo.controller.query.impl;
+package ec.gob.imark.catalogo.services.query;
 
-import ec.gob.imark.catalogo.ports.inputs.query.LocalizacionQueryService;
-import ec.gob.imark.catalogo.controller.query.LocalizacionQueryController;
 import ec.gob.imark.catalogo.records.request.LocalizacionFindAllPaginateRequestRecord;
 import ec.gob.imark.catalogo.records.request.LocalizacionFindByIdRequestRecord;
 import ec.gob.imark.catalogo.records.response.LocalizacionFindAllResponseRecord;
 import ec.gob.imark.catalogo.records.response.LocalizacionFindAllPaginateResponseRecord;
 import ec.gob.imark.catalogo.records.response.LocalizacionFindByIdResponseRecord;
+import ec.gob.imark.catalogo.ports.inputs.query.LocalizacionQueryService;
+import ec.gob.imark.catalogo.ports.outputs.query.LocalizacionQueryRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-@RestController
+@Service
 @RequiredArgsConstructor
-public class LocalizacionQueryControllerImpl implements LocalizacionQueryController
+@Transactional(readOnly = true)
+public class LocalizacionQueryServiceImpl implements LocalizacionQueryService
 {
-
-	private final LocalizacionQueryService localizacionQueryService;
+	private final LocalizacionQueryRepository localizacionQueryRepository;
 
 	/**
 	*
 	* Método que obtiene los datos por id de la tabla localizacion
 	*
 	* @name findAllLocalizacion
-	* @param LocalizacionFindAllRequestRecord
-	* @return List<LocalizacionFindAllResponseRecord>
+	* @return List<LocalizacionFindByIdResponseRecord>
 	*/
 	@Override
+	@Cacheable(value = "findAlllocalizacion", key = "{#idLocalizacion}")
 	public List<LocalizacionFindAllResponseRecord> findAllLocalizacion()
 	{
-		return localizacionQueryService.findAllLocalizacion();
+		return localizacionQueryRepository.findAllLocalizacion();
 	}
 
 	/**
@@ -58,10 +60,11 @@ public class LocalizacionQueryControllerImpl implements LocalizacionQueryControl
 	* @return List<LocalizacionFindAllPaginateResponseRecord>
 	*/
 	@Override
+	@Cacheable(value = "findAllPaginatelocalizacion", key = "{#idLocalizacion}")
 	public List<LocalizacionFindAllPaginateResponseRecord> findAllPaginateLocalizacion(
-	LocalizacionFindAllPaginateRequestRecord localizacionFindAllPaginateRequestRecord)
+		LocalizacionFindAllPaginateRequestRecord localizacionFindAllPaginateRequestRecord)
 	{
-		return localizacionQueryService.findAllPaginateLocalizacion(localizacionFindAllPaginateRequestRecord);
+		return localizacionQueryRepository.findAllPaginateLocalizacion(localizacionFindAllPaginateRequestRecord);
 	}
 
 	/**
@@ -73,10 +76,11 @@ public class LocalizacionQueryControllerImpl implements LocalizacionQueryControl
 	* @return List<LocalizacionFindByIdResponseRecord>
 	*/
 	@Override
+	@Cacheable(value = "findByIdlocalizacion", key = "{#idLocalizacion}")
 	public List<LocalizacionFindByIdResponseRecord> findByIdLocalizacion(
-	LocalizacionFindByIdRequestRecord localizacionFindByIdRequestRecord)
+		LocalizacionFindByIdRequestRecord localizacionFindByIdRequestRecord)
 	{
-		return localizacionQueryService.findByIdLocalizacion(localizacionFindByIdRequestRecord);
+		return localizacionQueryRepository.findByIdLocalizacion(localizacionFindByIdRequestRecord);
 	}
 
 }
