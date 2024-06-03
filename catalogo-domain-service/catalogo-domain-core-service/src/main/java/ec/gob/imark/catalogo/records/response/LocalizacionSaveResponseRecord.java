@@ -16,20 +16,25 @@
 *
 */
 package ec.gob.imark.catalogo.records.response;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 
 @Builder
 public record LocalizacionSaveResponseRecord(
-	@NotNull(message = "{id_localizacion.not_null}") String idLocalizacion,
-	@NotNull(message = "{id_localizacion_padre.not_null}") String idLocalizacionPadre,
-	@NotNull(message = "{nombre_localizacion.not_null}") String nombreLocalizacion,
+		@JsonProperty("resultado")
+		Object resultado, // Puede cambiar el tipo de acuerdo a tu JSON real
+		@JsonProperty("mensaje_logica")
+		String mensajeLogica)
+	/*@NotNull(message = "{id_localizacion.not_null}") String idLocalizacion,
+	@NotNull(message = "{id_localizacion_padre.not_null}") String idLocalizacionPadre,*/
+	/*@NotNull(message = "{nombre_localizacion.not_null}") String nombreLocalizacion,
 	@NotNull(message = "{codigo_localizacion.not_null}") String codigoLocalizacion,
 	@NotNull(message = "{nombre_nacionalidad_localizacion.not_null}") String nombreNacionalidadLocalizacion,
 	@NotNull(message = "{regimen_escolar_localizacion.not_null}") String regimenEscolarLocalizacion,
 	@NotNull(message = "{tiene_juzgado_localizacion.not_null}") Integer tieneJuzgadoLocalizacion,
 	@NotNull(message = "{es_urbana_localizacion.not_null}") String esUrbanaLocalizacion,
-	@NotNull(message = "{nivel_localizacion.not_null}") Integer nivelLocalizacion)
+	@NotNull(message = "{nivel_localizacion.not_null}") Integer nivelLocalizacion)*/
 {
 
 }

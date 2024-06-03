@@ -17,6 +17,7 @@
 */
 package ec.gob.imark.catalogo.controller.command;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import ec.gob.imark.catalogo.records.request.LocalizacionSaveRequestRecord;
 import ec.gob.imark.catalogo.records.request.LocalizacionUpdateRequestRecord;
 import ec.gob.imark.catalogo.records.response.LocalizacionSaveResponseRecord;
@@ -49,7 +50,8 @@ public interface LocalizacionCommandController
 	@PostMapping("/saveLocalizacion")
 	@ResponseStatus(HttpStatus.OK)
 	@Operation(summary = "Método que guarda los datos de la tabla localizacion")
-	List<LocalizacionSaveResponseRecord> saveLocalizacion(@Valid @NotNull @RequestBody LocalizacionSaveRequestRecord localizacionSaveRequestRecord);
+	LocalizacionSaveResponseRecord saveLocalizacion(@Valid @NotNull @RequestBody LocalizacionSaveRequestRecord localizacionSaveRequestRecord)
+      throws JsonProcessingException;
 
 	/**
 	*

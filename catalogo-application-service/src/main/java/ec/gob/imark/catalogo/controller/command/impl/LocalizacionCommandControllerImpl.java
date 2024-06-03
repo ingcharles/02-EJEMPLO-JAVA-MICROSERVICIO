@@ -17,6 +17,7 @@
 */
 package ec.gob.imark.catalogo.controller.command.impl;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import ec.gob.imark.catalogo.ports.inputs.command.LocalizacionCommandService;
 import ec.gob.imark.catalogo.controller.command.LocalizacionCommandController;
 import ec.gob.imark.catalogo.records.request.LocalizacionSaveRequestRecord;
@@ -43,8 +44,8 @@ public class LocalizacionCommandControllerImpl implements LocalizacionCommandCon
 	* @return List<LocalizacionSaveResponseRecord>
 	*/
 	@Override
-	public List<LocalizacionSaveResponseRecord> saveLocalizacion(LocalizacionSaveRequestRecord localizacionSaveRequestRecord)
-	{
+	public LocalizacionSaveResponseRecord saveLocalizacion(LocalizacionSaveRequestRecord localizacionSaveRequestRecord)
+			throws JsonProcessingException {
 		return localizacionCommandService.saveLocalizacion(localizacionSaveRequestRecord);
 	}
 

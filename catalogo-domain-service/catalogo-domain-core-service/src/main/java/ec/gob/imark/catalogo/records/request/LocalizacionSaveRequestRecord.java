@@ -16,12 +16,22 @@
 *
 */
 package ec.gob.imark.catalogo.records.request;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 
 @Builder
 public record LocalizacionSaveRequestRecord(
-	@NotNull(message = "{id_localizacion.not_null}") String idLocalizacion)
+		@JsonProperty("id_localizacion")
+	@NotNull(message = "{id_localizacion.not_null}") String idLocalizacion,
+		@JsonProperty("id_localizacion_padre")
+  @NotNull(message = "{id_localizacion_padre.not_null}") String idLocalizacionPadre,
+		@JsonProperty("nombre_localizacion")
+String nombreLocalizacion,
+		@JsonProperty("codigo_localizacion")
+	String codigoLocalizacion,
+		@JsonProperty("nivel_localizacion")
+	Integer nivelLocalizacion)
 {
 
 }

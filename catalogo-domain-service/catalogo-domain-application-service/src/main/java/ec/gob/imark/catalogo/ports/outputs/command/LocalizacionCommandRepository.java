@@ -17,6 +17,7 @@
 */
 package ec.gob.imark.catalogo.ports.outputs.command;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import ec.gob.imark.catalogo.records.request.LocalizacionSaveRequestRecord;
 import ec.gob.imark.catalogo.records.request.LocalizacionUpdateRequestRecord;
 import ec.gob.imark.catalogo.records.response.LocalizacionSaveResponseRecord;
@@ -33,7 +34,8 @@ public interface LocalizacionCommandRepository
 	* @param LocalizacionSaveRequestRecord
 	* @return List<LocalizacionSaveResponseRecord>
 	*/
-	 List<LocalizacionSaveResponseRecord> saveLocalizacion(LocalizacionSaveRequestRecord localizacionSaveRequestRecord);
+	 LocalizacionSaveResponseRecord saveLocalizacion(LocalizacionSaveRequestRecord localizacionSaveRequestRecord)
+			 throws JsonProcessingException;
 
 	/**
 	*

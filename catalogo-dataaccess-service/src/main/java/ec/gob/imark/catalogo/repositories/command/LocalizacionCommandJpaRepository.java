@@ -22,8 +22,10 @@ import ec.gob.imark.catalogo.records.response.LocalizacionSaveResponseRecord;
 import ec.gob.imark.catalogo.records.response.LocalizacionUpdateResponseRecord;
 import java.util.List;
 import java.util.Optional;
+import org.postgresql.util.PGobject;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
@@ -39,9 +41,11 @@ public interface LocalizacionCommandJpaRepository extends JpaRepository<Localiza
 	* @param LocalizacionFindAllPaginateRequestRecord
 	* @return List<LocalizacionFindAllPaginateResponseRecord>
 	*/
-	@Query(value="SELECT new ec.gob.imark.catalogo.records.response.LocalizacionSaveResponseRecord(t.idLocalizacion,t.idLocalizacionPadre,t.nombreLocalizacion,t.codigoLocalizacion,t.nombreNacionalidadLocalizacion,t.regimenEscolarLocalizacion,t.tieneJuzgadoLocalizacion,t.esUrbanaLocalizacion,t.nivelLocalizacion) FROM LocalizacionEntity t WHERE t.idLocalizacion = :idLocalizacion")
-	Optional<List<LocalizacionSaveResponseRecord>> saveLocalizacion(
-	@Param("idLocalizacion") String idLocalizacion);
+
+	//@Query(value="SELECT new ec.gob.imark.catalogo.records.response.LocalizacionSaveResponseRecord(t.idLocalizacion,t.idLocalizacionPadre,t.nombreLocalizacion,t.codigoLocalizacion,t.nombreNacionalidadLocalizacion,t.regimenEscolarLocalizacion,t.tieneJuzgadoLocalizacion,t.esUrbanaLocalizacion,t.nivelLocalizacion) FROM LocalizacionEntity t WHERE t.idLocalizacion = :idLocalizacion")
+	@Procedure(name = "sp_save_localizacion")
+	Optional<String> saveLocalizacion(
+	@Param("i_json_localizacion") PGobject idLocalizacion,@Param("o_json_resultado") PGobject idLocalizacion1);
 
 	/**
 	*

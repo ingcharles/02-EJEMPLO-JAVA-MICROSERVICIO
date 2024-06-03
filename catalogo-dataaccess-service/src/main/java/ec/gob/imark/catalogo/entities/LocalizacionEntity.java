@@ -20,6 +20,9 @@ package ec.gob.imark.catalogo.entities;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedStoredProcedureQuery;
+import jakarta.persistence.ParameterMode;
+import jakarta.persistence.StoredProcedureParameter;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -29,6 +32,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.postgresql.util.PGobject;
+
 @Getter
 @Setter
 @Builder
@@ -36,6 +41,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @Table(name = "localizacion", schema = "esq_catalogo")
 @Entity
+@NamedStoredProcedureQuery(
+		name = "sp_save_localizacion",
+		procedureName = "esq_catalogo.sp_save_localizacion",
+		parameters = {
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "i_json_localizacion", type = PGobject.class),
+				@StoredProcedureParameter(mode = ParameterMode.INOUT, name = "o_json_resultado", type = PGobject.class)
+		}
+)
 public class LocalizacionEntity
 {
 	@Id

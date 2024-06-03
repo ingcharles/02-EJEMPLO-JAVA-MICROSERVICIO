@@ -44,6 +44,12 @@
       <artifactId>datasource-proxy-spring-boot-starter</artifactId>
       <groupId>com.github.gavlyukovskiy</groupId>
     </dependency>
+    <dependency>
+      <groupId>org.codehaus.jettison</groupId>
+      <artifactId>jettison</artifactId>
+      <version>1.5.4</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
   <modelVersion>4.0.0</modelVersion>
   <parent>
