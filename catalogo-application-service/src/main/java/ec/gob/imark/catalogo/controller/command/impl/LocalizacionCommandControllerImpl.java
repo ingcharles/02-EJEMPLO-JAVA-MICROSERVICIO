@@ -17,13 +17,10 @@
 */
 package ec.gob.imark.catalogo.controller.command.impl;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import ec.gob.imark.catalogo.ports.inputs.command.LocalizacionCommandService;
 import ec.gob.imark.catalogo.controller.command.LocalizacionCommandController;
-import ec.gob.imark.catalogo.records.request.LocalizacionSaveRequestRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionSaveResponseRecord;
-import ec.gob.imark.catalogo.records.request.LocalizacionUpdateRequestRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionUpdateResponseRecord;
+import ec.gob.imark.catalogo.records.request.LocalizacionRequestRecord;
+import ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,13 +37,13 @@ public class LocalizacionCommandControllerImpl implements LocalizacionCommandCon
 	* Método que guarda los datos de la tabla localizacion
 	*
 	* @name saveLocalizacion
-	* @param LocalizacionSaveRequestRecord
-	* @return List<LocalizacionSaveResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return LocalizacionResponseRecord
 	*/
 	@Override
-	public LocalizacionSaveResponseRecord saveLocalizacion(LocalizacionSaveRequestRecord localizacionSaveRequestRecord)
-			throws JsonProcessingException {
-		return localizacionCommandService.saveLocalizacion(localizacionSaveRequestRecord);
+	public LocalizacionResponseRecord saveLocalizacion(LocalizacionRequestRecord localizacionRequestRecord)
+	{
+		return localizacionCommandService.saveLocalizacion(localizacionRequestRecord);
 	}
 
 	/**
@@ -54,13 +51,13 @@ public class LocalizacionCommandControllerImpl implements LocalizacionCommandCon
 	* Método que actualiza los datos de la tabla localizacion
 	*
 	* @name updateLocalizacion
-	* @param LocalizacionUpdateRequestRecord
-	* @return List<LocalizacionUpdateResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return LocalizacionResponseRecord
 	*/
 	@Override
-	public List<LocalizacionUpdateResponseRecord> updateLocalizacion(LocalizacionUpdateRequestRecord localizacionUpdateRequestRecord)
+	public LocalizacionResponseRecord updateLocalizacion(LocalizacionRequestRecord localizacionRequestRecord)
 	{
-		return localizacionCommandService.updateLocalizacion(localizacionUpdateRequestRecord);
+		return localizacionCommandService.updateLocalizacion(localizacionRequestRecord);
 	}
 
 }

@@ -16,45 +16,37 @@
 *
 */
 package ec.gob.imark.catalogo.services.command;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import ec.gob.imark.catalogo.records.request.LocalizacionSaveRequestRecord;
-import ec.gob.imark.catalogo.records.request.LocalizacionUpdateRequestRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionSaveResponseRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionUpdateResponseRecord;
+import ec.gob.imark.catalogo.records.request.LocalizacionRequestRecord;
+import ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord;
 import ec.gob.imark.catalogo.ports.inputs.command.LocalizacionCommandService;
 import ec.gob.imark.catalogo.ports.outputs.command.LocalizacionCommandRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-//@Transactional(readOnly = true)
-@Transactional(readOnly = false)
+@Transactional(readOnly = true)
 public class LocalizacionCommandServiceImpl implements LocalizacionCommandService
 {
 	private final LocalizacionCommandRepository localizacionCommandRepository;
 
-	private ObjectMapper objectMapper;
 	/**
 	*
 	* Método que obtiene los datos por id de la tabla localizacion
 	*
 	* @name saveLocalizacion
-	* @param LocalizacionSaveRequestRecord
-	* @return List<LocalizacionSaveResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return LocalizacionResponseRecord
 	*/
 	@Override
-	//@Cacheable(value = "savelocalizacion", key = "{#idLocalizacion}")
-	public LocalizacionSaveResponseRecord saveLocalizacion(
-		LocalizacionSaveRequestRecord localizacionSaveRequestRecord) throws JsonProcessingException {
-
-		return localizacionCommandRepository.saveLocalizacion(localizacionSaveRequestRecord);
+	@Transactional()
+	public LocalizacionResponseRecord saveLocalizacion(
+		LocalizacionRequestRecord localizacionRequestRecord)
+	{
+		return localizacionCommandRepository.saveLocalizacion(localizacionRequestRecord);
 	}
 
 	/**
@@ -62,15 +54,14 @@ public class LocalizacionCommandServiceImpl implements LocalizacionCommandServic
 	* Método que obtiene los datos por id de la tabla localizacion
 	*
 	* @name updateLocalizacion
-	* @param LocalizacionUpdateRequestRecord
-	* @return List<LocalizacionUpdateResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return LocalizacionResponseRecord
 	*/
 	@Override
-	@Cacheable(value = "updatelocalizacion", key = "{#idLocalizacion}")
-	public List<LocalizacionUpdateResponseRecord> updateLocalizacion(
-		LocalizacionUpdateRequestRecord localizacionUpdateRequestRecord)
+	public LocalizacionResponseRecord updateLocalizacion(
+		LocalizacionRequestRecord localizacionRequestRecord)
 	{
-		return localizacionCommandRepository.updateLocalizacion(localizacionUpdateRequestRecord);
+		return localizacionCommandRepository.updateLocalizacion(localizacionRequestRecord);
 	}
 
 }

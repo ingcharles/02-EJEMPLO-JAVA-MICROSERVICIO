@@ -17,11 +17,8 @@
 */
 package ec.gob.imark.catalogo.ports.inputs.command;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import ec.gob.imark.catalogo.records.request.LocalizacionSaveRequestRecord;
-import ec.gob.imark.catalogo.records.request.LocalizacionUpdateRequestRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionSaveResponseRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionUpdateResponseRecord;
+import ec.gob.imark.catalogo.records.request.LocalizacionRequestRecord;
+import ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord;
 import java.util.List;
 public interface LocalizacionCommandService
 {
@@ -31,21 +28,21 @@ public interface LocalizacionCommandService
 	* Método que obtiene los datos por id de la tabla localizacion
 	*
 	* @name saveLocalizacion
-	* @param LocalizacionSaveRequestRecord
-	* @return List<LocalizacionSaveResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return LocalizacionResponseRecord
 	*/
-	LocalizacionSaveResponseRecord saveLocalizacion(
-		LocalizacionSaveRequestRecord localizacionSaveRequestRecord) throws JsonProcessingException;
+	LocalizacionResponseRecord saveLocalizacion(
+		LocalizacionRequestRecord localizacionRequestRecord);
 
 	/**
 	*
 	* Método que obtiene los datos por id de la tabla localizacion
 	*
 	* @name updateLocalizacion
-	* @param LocalizacionUpdateRequestRecord
-	* @return List<LocalizacionUpdateResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return LocalizacionResponseRecord
 	*/
-	List<LocalizacionUpdateResponseRecord> updateLocalizacion(
-		LocalizacionUpdateRequestRecord localizacionUpdateRequestRecord);
+	LocalizacionResponseRecord updateLocalizacion(
+		LocalizacionRequestRecord localizacionRequestRecord);
 
 }

@@ -16,24 +16,23 @@
 *
 */
 package ec.gob.imark.catalogo.entities;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.NamedStoredProcedureQuery;
-import jakarta.persistence.ParameterMode;
-import jakarta.persistence.StoredProcedureParameter;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import java.util.List;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.postgresql.util.PGobject;
-
 @Getter
 @Setter
 @Builder
@@ -41,39 +40,39 @@ import org.postgresql.util.PGobject;
 @AllArgsConstructor
 @Table(name = "localizacion", schema = "esq_catalogo")
 @Entity
-@NamedStoredProcedureQuery(
-		name = "sp_save_localizacion",
-		procedureName = "esq_catalogo.sp_save_localizacion",
-		parameters = {
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "i_json_localizacion", type = PGobject.class),
-				@StoredProcedureParameter(mode = ParameterMode.INOUT, name = "o_json_resultado", type = PGobject.class)
-		}
-)
 public class LocalizacionEntity
 {
 	@Id
 	@NotBlank(message = "{localizacion.idLocalizacion.not_blank}")
-	@Size(max = 16, message = "{localizacion.idLocalizacion.size}")
+	@Size(max = 100, message = "{localizacion.idLocalizacion.size}")
 	@Column(name = "id_localizacion", nullable = false)
 	private String idLocalizacion;
 	
-	@NotBlank(message = "{localizacion.idLocalizacionPadre.not_blank}")
-	@Size(max = 16, message = "{localizacion.idLocalizacionPadre.size}")
-	@Column(name = "id_localizacion_padre", nullable = false)
-	private String idLocalizacionPadre;
-	
 	@NotBlank(message = "{localizacion.nombreLocalizacion.not_blank}")
-	@Size(max = 126, message = "{localizacion.nombreLocalizacion.size}")
+	@Size(max = 100, message = "{localizacion.nombreLocalizacion.size}")
 	@Column(name = "nombre_localizacion", nullable = false)
 	private String nombreLocalizacion;
 	
 	@NotBlank(message = "{localizacion.codigoLocalizacion.not_blank}")
-	@Size(max = 8, message = "{localizacion.codigoLocalizacion.size}")
+	@Size(max = 100, message = "{localizacion.codigoLocalizacion.size}")
 	@Column(name = "codigo_localizacion", nullable = false)
 	private String codigoLocalizacion;
 	
+	@NotBlank(message = "{localizacion.idLocalizacionPadre.not_blank}")
+	@Size(max = 8, message = "{localizacion.idLocalizacionPadre.size}")
+	@Column(name = "id_localizacion_padre", nullable = false)
+	private String idLocalizacionPadre;
+
+	@NotBlank(message = "{localizacion.esUrbanaLocalizacion.not_blank}")
+	@Column(name = "es_urbana_localizacion", nullable = false)
+	private Integer esUrbanaLocalizacion;
+
+	@NotBlank(message = "{localizacion.nivelLocalizacion.not_blank}")
+	@Column(name = "nivel_localizacion", nullable = false)
+	private Integer nivelLocalizacion;
+	
 	@NotBlank(message = "{localizacion.nombreNacionalidadLocalizacion.not_blank}")
-	@Size(max = 8, message = "{localizacion.nombreNacionalidadLocalizacion.size}")
+	@Size(max = 100, message = "{localizacion.nombreNacionalidadLocalizacion.size}")
 	@Column(name = "nombre_nacionalidad_localizacion", nullable = false)
 	private String nombreNacionalidadLocalizacion;
 	
@@ -85,15 +84,6 @@ public class LocalizacionEntity
 	@NotBlank(message = "{localizacion.tieneJuzgadoLocalizacion.not_blank}")
 	@Column(name = "tiene_juzgado_localizacion", nullable = false)
 	private Integer tieneJuzgadoLocalizacion;
-	
-	@NotBlank(message = "{localizacion.esUrbanaLocalizacion.not_blank}")
-	@Size(max = 8, message = "{localizacion.esUrbanaLocalizacion.size}")
-	@Column(name = "es_urbana_localizacion", nullable = false)
-	private String esUrbanaLocalizacion;
-
-	@NotBlank(message = "{localizacion.nivelLocalizacion.not_blank}")
-	@Column(name = "nivel_localizacion", nullable = false)
-	private Integer nivelLocalizacion;
 
 	@Override
 	public int hashCode()

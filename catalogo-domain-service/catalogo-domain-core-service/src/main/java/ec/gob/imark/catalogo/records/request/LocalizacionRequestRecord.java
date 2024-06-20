@@ -6,7 +6,7 @@
 * @author        Carlos Anchundia
 * @version       1.0.0
 * @date          08-05-2024
-* @name          LocalizacionFindAllPaginateRequestRecord
+* @name          LocalizacionRequestRecord
 * @package       catalogo-somain-services
 * @subpackage   ec.gob.imark.catalogo.controller.query.impl
 *
@@ -20,8 +20,16 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 
 @Builder
-public record LocalizacionFindAllPaginateRequestRecord(
-	@NotNull(message = "{id_localizacion.not_null}") String idLocalizacion)
+public record LocalizacionRequestRecord(
+	String idLocalizacion,
+	String nombreLocalizacion,
+	String codigoLocalizacion,
+	String idLocalizacionPadre,
+	Integer esUrbanaLocalizacion,
+	Integer nivelLocalizacion,
+	String nombreNacionalidadLocalizacion,
+	String regimenEscolarLocalizacion,
+	Integer tieneJuzgadoLocalizacion)
 {
 
 }

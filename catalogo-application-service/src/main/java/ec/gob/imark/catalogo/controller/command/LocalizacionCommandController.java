@@ -17,11 +17,8 @@
 */
 package ec.gob.imark.catalogo.controller.command;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import ec.gob.imark.catalogo.records.request.LocalizacionSaveRequestRecord;
-import ec.gob.imark.catalogo.records.request.LocalizacionUpdateRequestRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionSaveResponseRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionUpdateResponseRecord;
+import ec.gob.imark.catalogo.records.request.LocalizacionRequestRecord;
+import ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
@@ -44,26 +41,25 @@ public interface LocalizacionCommandController
 	* Método que guarda los datos de la tabla localizacion
 	*
 	* @name saveLocalizacion
-	* @param LocalizacionSaveRequestRecord
-	* @return List<LocalizacionSaveResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return LocalizacionResponseRecord
 	*/
 	@PostMapping("/saveLocalizacion")
 	@ResponseStatus(HttpStatus.OK)
 	@Operation(summary = "Método que guarda los datos de la tabla localizacion")
-	LocalizacionSaveResponseRecord saveLocalizacion(@Valid @NotNull @RequestBody LocalizacionSaveRequestRecord localizacionSaveRequestRecord)
-      throws JsonProcessingException;
+	LocalizacionResponseRecord saveLocalizacion(@Valid @NotNull @RequestBody LocalizacionRequestRecord localizacionRequestRecord);
 
 	/**
 	*
 	* Método que actualiza los datos de la tabla localizacion
 	*
 	* @name updateLocalizacion
-	* @param LocalizacionUpdateRequestRecord
-	* @return List<LocalizacionUpdateResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return LocalizacionResponseRecord
 	*/
 	@PostMapping("/updateLocalizacion")
 	@ResponseStatus(HttpStatus.OK)
 	@Operation(summary = "Método que guarda los datos de la tabla localizacion")
-	List<LocalizacionUpdateResponseRecord> updateLocalizacion(@Valid @NotNull @RequestBody LocalizacionUpdateRequestRecord localizacionUpdateRequestRecord);
+	LocalizacionResponseRecord updateLocalizacion(@Valid @NotNull @RequestBody LocalizacionRequestRecord localizacionRequestRecord);
 
 }
