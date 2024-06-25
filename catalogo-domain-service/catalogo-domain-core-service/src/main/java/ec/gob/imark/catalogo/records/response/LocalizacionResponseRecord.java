@@ -16,19 +16,21 @@
 *
 */
 package ec.gob.imark.catalogo.records.response;
-
+import jakarta.validation.constraints.NotNull;
+import java.io.Serializable;
 import lombok.Builder;
 
 @Builder
 public record LocalizacionResponseRecord(
-		String idLocalizacion,
-		String idLocalizacionPadre,
-		String nombreLocalizacion,
-		String codigoLocalizacion,
-		String nombreNacionalidadLocalizacion,
-		String regimenEscolarLocalizacion,
-		Integer tieneJuzgadoLocalizacion,
-		String esUrbanaLocalizacion,
-		Integer nivelLocalizacion) {
+	String idLocalizacion,
+	String idLocalizacionPadre,
+	String nombreLocalizacion,
+	String codigoLocalizacion,
+	String nombreNacionalidadLocalizacion,
+	String regimenEscolarLocalizacion,
+	Integer tieneJuzgadoLocalizacion,
+	String esUrbanaLocalizacion,
+	Integer nivelLocalizacion)
+ implements Serializable {
 
 }
