@@ -9,16 +9,15 @@
  */
 package ec.gob.imark.catalogo.mappers.core;
 
-import org.springframework.data.domain.Page;
-
 /**
  * -- AQUI AÑADIR LA DESCRIPCION DE LA INTERFACE --.
  *
- * <p>Historial de cambios:
+ * <p>
+ * Historial de cambios:
  *
  * <ul>
- *   <li>1.0.0 - Descripción del cambio inicial - Carlos.Anchundia - 3/6/2024
- *       <!-- Añadir nuevas entradas de cambios aquí -->
+ * <li>1.0.0 - Descripción del cambio inicial - Carlos.Anchundia - 3/6/2024
+ * <!-- Añadir nuevas entradas de cambios aquí -->
  * </ul>
  *
  * @author Carlos.Anchundia
@@ -37,23 +36,26 @@ public interface GenericMapper<E, R> {
    * @param entityPage Entidad a convertir
    * @return PaginatedDataRecord como respuesta.
    */
-  /*default PaginatedDataRecord<R> entityPageToRecordPage(Page<E> entityPage) {
-    return PaginatedDataRecord.<R>builder()
-        .data(entityPage.getContent().stream().map(this::entityToResponseRecord).toList())
-        .totalElements(entityPage.getTotalElements())
-        .totalPages(entityPage.getTotalPages())
-        .number(entityPage.getNumber())
-        .size(entityPage.getSize())
-        .build();
-  }
-
-  default PaginatedDataRecord<R> recordPageToRecordPage(Page<R> recordPage) {
-    return PaginatedDataRecord.<R>builder()
-        .data(recordPage.getContent())
-        .totalElements(recordPage.getTotalElements())
-        .totalPages(recordPage.getTotalPages())
-        .number(recordPage.getNumber())
-        .size(recordPage.getSize())
-        .build();
-  }*/
+  /*
+   * default PaginatedDataRecord<R> entityPageToRecordPage(Page<E> entityPage) {
+   * return PaginatedDataRecord.<R>builder()
+   * .data(entityPage.getContent().stream().map(this::entityToResponseRecord).
+   * toList())
+   * .totalElements(entityPage.getTotalElements())
+   * .totalPages(entityPage.getTotalPages())
+   * .number(entityPage.getNumber())
+   * .size(entityPage.getSize())
+   * .build();
+   * }
+   * 
+   * default PaginatedDataRecord<R> recordPageToRecordPage(Page<R> recordPage) {
+   * return PaginatedDataRecord.<R>builder()
+   * .data(recordPage.getContent())
+   * .totalElements(recordPage.getTotalElements())
+   * .totalPages(recordPage.getTotalPages())
+   * .number(recordPage.getNumber())
+   * .size(recordPage.getSize())
+   * .build();
+   * }
+   */
 }

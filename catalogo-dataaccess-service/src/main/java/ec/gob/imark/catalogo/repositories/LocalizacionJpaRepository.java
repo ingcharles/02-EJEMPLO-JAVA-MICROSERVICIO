@@ -17,54 +17,53 @@
 */
 package ec.gob.imark.catalogo.repositories;
 
-import ec.gob.imark.catalogo.entities.LocalizacionEntity;
-import ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord;
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import ec.gob.imark.catalogo.entities.LocalizacionEntity;
+import ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord;
+
 @Repository
-public interface LocalizacionJpaRepository extends JpaRepository<LocalizacionEntity, Integer>
-{
+public interface LocalizacionJpaRepository extends JpaRepository<LocalizacionEntity, Integer> {
 
 	/**
-	*
-	* Método que obtiene los datos por id de la tabla localizacion
-	*
-	* @name findAllLocalizacion
-	* @param 
-	* @return List<LocalizacionResponseRecord>
-	*/
-	@Query(value="SELECT new ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord(t.idLocalizacion,t.idLocalizacionPadre,t.nombreLocalizacion,t.codigoLocalizacion,t.nombreNacionalidadLocalizacion,t.regimenEscolarLocalizacion,t.tieneJuzgadoLocalizacion,t.esUrbanaLocalizacion,t.nivelLocalizacion) FROM LocalizacionEntity t")
+	 *
+	 * Método que obtiene los datos por id de la tabla localizacion
+	 *
+	 * @name findAllLocalizacion
+	 * @param
+	 * @return List<LocalizacionResponseRecord>
+	 */
+	@Query(value = "SELECT new ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord(t.idLocalizacion,t.idLocalizacionPadre,t.nombreLocalizacion,t.codigoLocalizacion,t.nombreNacionalidadLocalizacion,t.regimenEscolarLocalizacion,t.tieneJuzgadoLocalizacion,t.esUrbanaLocalizacion,t.nivelLocalizacion) FROM LocalizacionEntity t")
 	Optional<List<LocalizacionResponseRecord>> findAllLocalizacion();
 
 	/**
-	*
-	* Método que obtiene los datos por id de la tabla localizacion
-	*
-	* @name findAllPaginateLocalizacion
-	* @param LocalizacionRequestRecord
-	* @return List<LocalizacionResponseRecord>
-	*/
-	@Query(value="SELECT new ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord(t.idLocalizacion,t.idLocalizacionPadre,t.nombreLocalizacion,t.codigoLocalizacion,t.nombreNacionalidadLocalizacion,t.regimenEscolarLocalizacion,t.tieneJuzgadoLocalizacion,t.esUrbanaLocalizacion,t.nivelLocalizacion) FROM LocalizacionEntity t WHERE t.idLocalizacion = :idLocalizacion")
+	 *
+	 * Método que obtiene los datos por id de la tabla localizacion
+	 *
+	 * @name findAllPaginateLocalizacion
+	 * @param LocalizacionRequestRecord
+	 * @return List<LocalizacionResponseRecord>
+	 */
+	@Query(value = "SELECT new ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord(t.idLocalizacion,t.idLocalizacionPadre,t.nombreLocalizacion,t.codigoLocalizacion,t.nombreNacionalidadLocalizacion,t.regimenEscolarLocalizacion,t.tieneJuzgadoLocalizacion,t.esUrbanaLocalizacion,t.nivelLocalizacion) FROM LocalizacionEntity t WHERE t.idLocalizacion = :idLocalizacion")
 	Optional<List<LocalizacionResponseRecord>> findAllPaginateLocalizacion(
-	@Param("idLocalizacion") String idLocalizacion);
+			@Param("idLocalizacion") String idLocalizacion);
 
 	/**
-	*
-	* Método que obtiene los datos por id de la tabla localizacion
-	*
-	* @name findByIdLocalizacion
-	* @param LocalizacionRequestRecord
-	* @return List<LocalizacionResponseRecord>
-	*/
-	@Query(value="SELECT new ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord(t.idLocalizacion,t.idLocalizacionPadre,t.nombreLocalizacion,t.codigoLocalizacion,t.nombreNacionalidadLocalizacion,t.regimenEscolarLocalizacion,t.tieneJuzgadoLocalizacion,t.esUrbanaLocalizacion,t.nivelLocalizacion) FROM LocalizacionEntity t WHERE t.idLocalizacion = :idLocalizacion")
+	 *
+	 * Método que obtiene los datos por id de la tabla localizacion
+	 *
+	 * @name findByIdLocalizacion
+	 * @param LocalizacionRequestRecord
+	 * @return List<LocalizacionResponseRecord>
+	 */
+	@Query(value = "SELECT new ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord(t.idLocalizacion,t.idLocalizacionPadre,t.nombreLocalizacion,t.codigoLocalizacion,t.nombreNacionalidadLocalizacion,t.regimenEscolarLocalizacion,t.tieneJuzgadoLocalizacion,t.esUrbanaLocalizacion,t.nivelLocalizacion) FROM LocalizacionEntity t WHERE t.idLocalizacion = :idLocalizacion")
 	Optional<LocalizacionResponseRecord> findByIdLocalizacion(
-	@Param("idLocalizacion") String idLocalizacion);
+			@Param("idLocalizacion") String idLocalizacion);
 
 }
