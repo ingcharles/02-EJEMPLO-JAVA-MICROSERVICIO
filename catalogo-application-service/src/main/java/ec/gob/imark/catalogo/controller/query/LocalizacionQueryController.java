@@ -17,11 +17,8 @@
 */
 package ec.gob.imark.catalogo.controller.query;
 
-import ec.gob.imark.catalogo.records.request.LocalizacionFindByIdRequestRecord;
-import ec.gob.imark.catalogo.records.request.LocalizacionFindAllPaginateRequestRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionFindAllResponseRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionFindAllPaginateResponseRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionFindByIdResponseRecord;
+import ec.gob.imark.catalogo.records.request.LocalizacionRequestRecord;
+import ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
@@ -50,34 +47,34 @@ public interface LocalizacionQueryController
 	@GetMapping("/findAllLocalizacion")
 	@ResponseStatus(HttpStatus.OK)
 	@Operation(summary = "Método que obtiene los datos de la tabla localizacion")
-	List<LocalizacionFindAllResponseRecord> findAllLocalizacion();
+	List<LocalizacionResponseRecord> findAllLocalizacion();
 
 	/**
 	*
 	* Método que obtiene los datos de la tabla localizacion
 	*
 	* @name FindAllPaginateLocalizacion
-	* @param LocalizacionFindAllPaginateRequestRecord
-	* @return List<LocalizacionFindAllPaginateResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return List<LocalizacionResponseRecord>
 	*/
 	@PostMapping("/findAllPaginateLocalizacion")
 	@ResponseStatus(HttpStatus.OK)
 	@Operation(summary = "Método que obtiene los datos de la tabla localizacion")
-	List<LocalizacionFindAllPaginateResponseRecord> findAllPaginateLocalizacion(
-		@Valid @NotNull @RequestBody LocalizacionFindAllPaginateRequestRecord localizacionFindAllPaginateRequestRecord);
+	List<LocalizacionResponseRecord> findAllPaginateLocalizacion(
+		@Valid @NotNull @RequestBody LocalizacionRequestRecord localizacionRequestRecord);
 
 	/**
 	*
 	* Método que obtiene los datos de la tabla localizacion
 	*
 	* @name findByIdLocalizacion
-	* @param LocalizacionFindByIdRequestRecord
-	* @return List<LocalizacionFindByIdResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return LocalizacionResponseRecord
 	*/
 	@PostMapping("/findByIdLocalizacion")
 	@ResponseStatus(HttpStatus.OK)
 	@Operation(summary = "Método que obtiene los datos de la tabla localizacion")
-	List<LocalizacionFindByIdResponseRecord> findByIdLocalizacion(
-		@Valid @NotNull @RequestBody LocalizacionFindByIdRequestRecord localizacionFindByIdRequestRecord);
+	LocalizacionResponseRecord findByIdLocalizacion(
+		@Valid @NotNull @RequestBody LocalizacionRequestRecord localizacionRequestRecord);
 
 }

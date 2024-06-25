@@ -16,12 +16,8 @@
 *
 */
 package ec.gob.imark.catalogo.services.query;
-
-import ec.gob.imark.catalogo.records.request.LocalizacionFindAllPaginateRequestRecord;
-import ec.gob.imark.catalogo.records.request.LocalizacionFindByIdRequestRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionFindAllResponseRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionFindAllPaginateResponseRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionFindByIdResponseRecord;
+import ec.gob.imark.catalogo.records.request.LocalizacionRequestRecord;
+import ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord;
 import ec.gob.imark.catalogo.ports.inputs.query.LocalizacionQueryService;
 import ec.gob.imark.catalogo.ports.outputs.query.LocalizacionQueryRepository;
 import java.util.List;
@@ -42,11 +38,10 @@ public class LocalizacionQueryServiceImpl implements LocalizacionQueryService
 	* Método que obtiene los datos por id de la tabla localizacion
 	*
 	* @name findAllLocalizacion
-	* @return List<LocalizacionFindByIdResponseRecord>
+	* @return List<LocalizacionResponseRecord>
 	*/
 	@Override
-	@Cacheable(value = "findAlllocalizacion", key = "{#idLocalizacion}")
-	public List<LocalizacionFindAllResponseRecord> findAllLocalizacion()
+	public List<LocalizacionResponseRecord> findAllLocalizacion()
 	{
 		return localizacionQueryRepository.findAllLocalizacion();
 	}
@@ -56,15 +51,14 @@ public class LocalizacionQueryServiceImpl implements LocalizacionQueryService
 	* Método que obtiene los datos por id de la tabla localizacion
 	*
 	* @name findAllPaginateLocalizacion
-	* @param LocalizacionFindAllPaginateRequestRecord
-	* @return List<LocalizacionFindAllPaginateResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return List<LocalizacionResponseRecord>
 	*/
 	@Override
-	@Cacheable(value = "findAllPaginatelocalizacion", key = "{#idLocalizacion}")
-	public List<LocalizacionFindAllPaginateResponseRecord> findAllPaginateLocalizacion(
-		LocalizacionFindAllPaginateRequestRecord localizacionFindAllPaginateRequestRecord)
+	public List<LocalizacionResponseRecord> findAllPaginateLocalizacion(
+		LocalizacionRequestRecord localizacionRequestRecord)
 	{
-		return localizacionQueryRepository.findAllPaginateLocalizacion(localizacionFindAllPaginateRequestRecord);
+		return localizacionQueryRepository.findAllPaginateLocalizacion(localizacionRequestRecord);
 	}
 
 	/**
@@ -72,15 +66,14 @@ public class LocalizacionQueryServiceImpl implements LocalizacionQueryService
 	* Método que obtiene los datos por id de la tabla localizacion
 	*
 	* @name findByIdLocalizacion
-	* @param LocalizacionFindByIdRequestRecord
-	* @return List<LocalizacionFindByIdResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return List<LocalizacionResponseRecord>
 	*/
 	@Override
-	@Cacheable(value = "findByIdlocalizacion", key = "{#idLocalizacion}")
-	public List<LocalizacionFindByIdResponseRecord> findByIdLocalizacion(
-		LocalizacionFindByIdRequestRecord localizacionFindByIdRequestRecord)
+	public LocalizacionResponseRecord findByIdLocalizacion(
+		LocalizacionRequestRecord localizacionRequestRecord)
 	{
-		return localizacionQueryRepository.findByIdLocalizacion(localizacionFindByIdRequestRecord);
+		return localizacionQueryRepository.findByIdLocalizacion(localizacionRequestRecord);
 	}
 
 }

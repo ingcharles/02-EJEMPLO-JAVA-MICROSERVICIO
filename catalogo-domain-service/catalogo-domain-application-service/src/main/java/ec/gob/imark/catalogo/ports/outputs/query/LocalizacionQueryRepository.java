@@ -16,12 +16,8 @@
 *
 */
 package ec.gob.imark.catalogo.ports.outputs.query;
-
-import ec.gob.imark.catalogo.records.request.LocalizacionFindAllPaginateRequestRecord;
-import ec.gob.imark.catalogo.records.request.LocalizacionFindByIdRequestRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionFindAllResponseRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionFindAllPaginateResponseRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionFindByIdResponseRecord;
+import ec.gob.imark.catalogo.records.request.LocalizacionRequestRecord;
+import ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord;
 import java.util.List;
 public interface LocalizacionQueryRepository
 {
@@ -32,28 +28,28 @@ public interface LocalizacionQueryRepository
 	*
 	* @name findAllLocalizacion
 	* @param 
-	* @return List<LocalizacionFindAllResponseRecord>
+	* @return List<LocalizacionResponseRecord>
 	*/
-	 List<LocalizacionFindAllResponseRecord> findAllLocalizacion();
+	 List<LocalizacionResponseRecord> findAllLocalizacion();
 
 	/**
 	*
 	* Método que obtiene los datos por id de la tabla localizacion
 	*
 	* @name findAllPaginateLocalizacion
-	* @param LocalizacionFindAllPaginateRequestRecord
-	* @return List<LocalizacionFindAllPaginateResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return List<LocalizacionResponseRecord>
 	*/
-	 List<LocalizacionFindAllPaginateResponseRecord> findAllPaginateLocalizacion(LocalizacionFindAllPaginateRequestRecord localizacionFindAllPaginateRequestRecord);
+	 List<LocalizacionResponseRecord> findAllPaginateLocalizacion(LocalizacionRequestRecord localizacionRequestRecord);
 
 	/**
 	*
 	* Método que obtiene los datos por id de la tabla localizacion
 	*
 	* @name findByIdLocalizacion
-	* @param LocalizacionFindByIdRequestRecord
-	* @return List<LocalizacionFindByIdResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return LocalizacionResponseRecord
 	*/
-	 List<LocalizacionFindByIdResponseRecord> findByIdLocalizacion(LocalizacionFindByIdRequestRecord localizacionFindByIdRequestRecord);
+	 LocalizacionResponseRecord findByIdLocalizacion(LocalizacionRequestRecord localizacionRequestRecord);
 
 }

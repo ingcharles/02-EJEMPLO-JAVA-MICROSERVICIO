@@ -18,12 +18,9 @@
 package ec.gob.imark.catalogo.adapters.query;
 
 import ec.gob.imark.catalogo.exceptions.LocalizacionException;
-import ec.gob.imark.catalogo.records.request.LocalizacionFindAllPaginateRequestRecord;
-import ec.gob.imark.catalogo.records.request.LocalizacionFindByIdRequestRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionFindAllResponseRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionFindAllPaginateResponseRecord;
-import ec.gob.imark.catalogo.records.response.LocalizacionFindByIdResponseRecord;
-import ec.gob.imark.catalogo.repositories.query.LocalizacionQueryJpaRepository;
+import ec.gob.imark.catalogo.records.request.LocalizacionRequestRecord;
+import ec.gob.imark.catalogo.records.response.LocalizacionResponseRecord;
+import ec.gob.imark.catalogo.repositories.LocalizacionJpaRepository;
 import ec.gob.imark.catalogo.messages.MessageSourceUtil;
 import ec.gob.imark.catalogo.ports.outputs.query.LocalizacionQueryRepository;
 import java.util.List;
@@ -36,7 +33,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class LocalizacionQueryRepositoryImpl implements LocalizacionQueryRepository
 {
-	private final LocalizacionQueryJpaRepository localizacionQueryJpaRepository;
+	private final LocalizacionJpaRepository localizacionJpaRepository;
 	private final MessageSourceUtil messageSourceUtil;
 
 	/**
@@ -44,12 +41,12 @@ public class LocalizacionQueryRepositoryImpl implements LocalizacionQueryReposit
 	* Método que obtiene los datos por id de la tabla localizacion
 	*
 	* @name findAllLocalizacion
-	* @return List<LocalizacionFindAllResponseRecord>
+	* @return List<LocalizacionResponseRecord>
 	*/
 	@Override
-	public List<LocalizacionFindAllResponseRecord> findAllLocalizacion()
+	public List<LocalizacionResponseRecord> findAllLocalizacion()
 	{
-		return localizacionQueryJpaRepository.findAllLocalizacion()
+		return localizacionJpaRepository.findAllLocalizacion()
 		.orElseThrow(() -> new LocalizacionException(String.format(messageSourceUtil.getMessage("localizacion.component.exception.notfound"))));
 	}
 
@@ -58,16 +55,16 @@ public class LocalizacionQueryRepositoryImpl implements LocalizacionQueryReposit
 	* Método que obtiene los datos por id de la tabla localizacion
 	*
 	* @name findAllPaginateLocalizacion
-	* @param LocalizacionFindAllPaginateRequestRecord
-	* @return List<LocalizacionFindAllPaginateResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return List<LocalizacionResponseRecord>
 	*/
 	@Override
-	public List<LocalizacionFindAllPaginateResponseRecord> findAllPaginateLocalizacion(
-	LocalizacionFindAllPaginateRequestRecord localizacionFindAllPaginateRequestRecord)
+	public List<LocalizacionResponseRecord> findAllPaginateLocalizacion(
+	LocalizacionRequestRecord localizacionRequestRecord)
 	{
-		return localizacionQueryJpaRepository.findAllPaginateLocalizacion(localizacionFindAllPaginateRequestRecord.idLocalizacion())
+		return localizacionJpaRepository.findAllPaginateLocalizacion(localizacionRequestRecord.idLocalizacion())
 		.orElseThrow(() -> new LocalizacionException(String.format(messageSourceUtil.getMessage("localizacion.component.exception.notfound"),
-		localizacionFindAllPaginateRequestRecord.idLocalizacion())));
+		localizacionRequestRecord.idLocalizacion())));
 	}
 
 	/**
@@ -75,16 +72,16 @@ public class LocalizacionQueryRepositoryImpl implements LocalizacionQueryReposit
 	* Método que obtiene los datos por id de la tabla localizacion
 	*
 	* @name findByIdLocalizacion
-	* @param LocalizacionFindByIdRequestRecord
-	* @return List<LocalizacionFindByIdResponseRecord>
+	* @param LocalizacionRequestRecord
+	* @return LocalizacionResponseRecord
 	*/
 	@Override
-	public List<LocalizacionFindByIdResponseRecord> findByIdLocalizacion(
-	LocalizacionFindByIdRequestRecord localizacionFindByIdRequestRecord)
+	public LocalizacionResponseRecord findByIdLocalizacion(
+	LocalizacionRequestRecord localizacionRequestRecord)
 	{
-		return localizacionQueryJpaRepository.findByIdLocalizacion(localizacionFindByIdRequestRecord.idLocalizacion())
+		return localizacionJpaRepository.findByIdLocalizacion(localizacionRequestRecord.idLocalizacion())
 		.orElseThrow(() -> new LocalizacionException(String.format(messageSourceUtil.getMessage("localizacion.component.exception.notfound"),
-		localizacionFindByIdRequestRecord.idLocalizacion())));
+		localizacionRequestRecord.idLocalizacion())));
 	}
 
 }
