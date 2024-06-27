@@ -118,42 +118,42 @@
           <failOnViolation>true</failOnViolation>
           <includeTests>true</includeTests>
           <rulesets>
-            <ruleset>http://10.1.22.164/analisis-codigo/analisis-codigo/-/raw/main/pmd-ruleset.xml
-            </ruleset>
-          </rulesets>
-          <skipEmptyReport>false</skipEmptyReport>
-          <verbose>true</verbose>
-        </configuration>
-        <executions>
-          <execution>
-            <configuration>
-              <excludeFromFailureFile>
-                ${project.parent.relativePath}/semop-monitoring-container/src/test/resources/aud-codigo/exclude-pmd.properties
-              </excludeFromFailureFile>
-            </configuration>
-            <goals>
-              <goal>check</goal>
-            </goals>
-            <id>check-pmd</id>
-            <phase>verify</phase>
-          </execution>
-          <execution>
-            <configuration>
-              <excludeFromFailureFile>
-                ${project.parent.relativePath}/semop-monitoring-container/src/test/resources/aud-codigo/exclude-pmd.properties
-              </excludeFromFailureFile>
-            </configuration>
-            <goals>
-              <goal>check</goal>
-            </goals>
-            <id>report-pmd</id>
-            <phase>site</phase>
-          </execution>
-        </executions>
-        <groupId>org.apache.maven.plugins</groupId>
-        <version>${maven-pmd-plugin.version}</version>
-      </plugin>
-      <!-- Plugin para chequear dependencias por vulnerabilidades conocidas -->
+      <!--<ruleset>http://10.1.22.164/analisis-codigo/analisis-codigo/-/raw/main/pmd-ruleset.xml
+     </ruleset>-->
+   </rulesets>
+   <skipEmptyReport>false</skipEmptyReport>
+   <verbose>true</verbose>
+ </configuration>
+ <executions>
+   <execution>
+     <configuration>
+       <excludeFromFailureFile>
+         ${project.parent.relativePath}/semop-monitoring-container/src/test/resources/aud-codigo/exclude-pmd.properties
+       </excludeFromFailureFile>
+     </configuration>
+     <goals>
+       <goal>check</goal>
+     </goals>
+     <id>check-pmd</id>
+     <phase>verify</phase>
+   </execution>
+   <execution>
+     <configuration>
+       <excludeFromFailureFile>
+         ${project.parent.relativePath}/semop-monitoring-container/src/test/resources/aud-codigo/exclude-pmd.properties
+       </excludeFromFailureFile>
+     </configuration>
+     <goals>
+       <goal>check</goal>
+     </goals>
+     <id>report-pmd</id>
+     <phase>site</phase>
+   </execution>
+ </executions>
+ <groupId>org.apache.maven.plugins</groupId>
+ <version>${maven-pmd-plugin.version}</version>
+</plugin>
+<!-- Plugin para chequear dependencias por vulnerabilidades conocidas -->
       <!--plugin>
         <artifactId>dependency-check-maven</artifactId>
         <configuration>

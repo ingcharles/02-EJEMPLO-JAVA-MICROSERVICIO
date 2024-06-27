@@ -11,8 +11,12 @@ package ec.gob.imark.catalogo.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * -- AQUI AÑADIR LA DESCRIPCION DE LA CLASE --.
@@ -35,6 +39,10 @@ public class JacksonConfig {
   public ObjectMapper objectMapper() {
     ObjectMapper mapper = new ObjectMapper();
     mapper.registerModule(new JavaTimeModule());
+    //JavaTimeModule module = new JavaTimeModule();
+    //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+    //module.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(formatter));
+
     return mapper;
   }
 }

@@ -23,12 +23,14 @@ import lombok.Builder;
 
 @Builder
 public record LocalizacionPruebaRequestRecord(
+		String auditoria,
 	Integer idLocalizacionPrueba,
 	String nombreLocalizacionPrueba,
 	Boolean isLocalizacionPrueba,
 	Integer enteroLocalizacionPrueba,
 	Float decimalLocalizacionPrueba,
 	String descripcionLocalizacionPrueba,
+		//@JsonFormat(pattern = "dd-MM-yyyy'T'HH:mm:ss")
 	LocalDateTime fechaLocalizacionPrueba,
 	Integer estadoLocalizacionPrueba)
  implements Serializable {

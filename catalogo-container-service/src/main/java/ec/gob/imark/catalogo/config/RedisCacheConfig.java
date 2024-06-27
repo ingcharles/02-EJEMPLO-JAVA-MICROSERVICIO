@@ -26,8 +26,8 @@ public class RedisCacheConfig {
   private static final String LOCALIZACION_ID = "findByIdLocalizacion";
   private static final Integer MINUTES_EXPIRES_MATERIA = 720;
 
-  @Value("${redis.address}")
-  private String redisAddress;
+  //@Value("${redis.address}")
+  //private String redisAddress;
 
   @Bean
   @Profile("dev")
@@ -41,14 +41,14 @@ public class RedisCacheConfig {
     return cacheManager;
   }
 
-  @Bean
+  /*@Bean
   @Profile("prod")
   public CacheManager getCahe(RedissonClient redissonClient) {
     Map<String, CacheConfig> config = new HashMap<>();
     config.put(LOCALIZACION_NIVEL, createCacheConfigWithTTL(24));
     config.put(LOCALIZACION_ID, createCacheConfigWithTTL(24));
     return new RedissonSpringCacheManager(redissonClient, config);
-  }
+  }*/
 
   private CacheConfig createCacheConfigWithTTL(int hours) {
     CacheConfig cacheConfig = new CacheConfig();
@@ -56,11 +56,11 @@ public class RedisCacheConfig {
     return cacheConfig;
   }
 
-  @Bean(destroyMethod = "shutdown")
+  /*@Bean(destroyMethod = "shutdown")
   @Profile("prod")
   public RedissonClient redisson() {
     final Config config = new Config();
     config.useSingleServer().setAddress(redisAddress);
     return Redisson.create(config);
-  }
+  }*/
 }
