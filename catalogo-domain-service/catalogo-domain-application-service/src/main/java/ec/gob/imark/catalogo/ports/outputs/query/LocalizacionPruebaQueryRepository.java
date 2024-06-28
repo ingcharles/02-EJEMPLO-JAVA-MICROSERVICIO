@@ -19,6 +19,10 @@ package ec.gob.imark.catalogo.ports.outputs.query;
 import ec.gob.imark.catalogo.records.request.LocalizacionPruebaRequestRecord;
 import ec.gob.imark.catalogo.records.response.LocalizacionPruebaResponseRecord;
 import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
+
 public interface LocalizacionPruebaQueryRepository
 {
 
@@ -40,7 +44,8 @@ public interface LocalizacionPruebaQueryRepository
 	* @param LocalizacionPruebaRequestRecord
 	* @return List<LocalizacionPruebaResponseRecord>
 	*/
-	 List<LocalizacionPruebaResponseRecord> findAllPaginateLocalizacionPrueba(LocalizacionPruebaRequestRecord localizacionpruebaRequestRecord);
+	 Page<LocalizacionPruebaResponseRecord> findAllPaginateLocalizacionPrueba(@Param("search") String search,
+			 Pageable pageable);
 
 	/**
 	*

@@ -20,9 +20,12 @@ package ec.gob.imark.catalogo.controller.query.impl;
 import ec.gob.imark.catalogo.ports.inputs.query.LocalizacionPruebaQueryService;
 import ec.gob.imark.catalogo.controller.query.LocalizacionPruebaQueryController;
 import ec.gob.imark.catalogo.records.request.LocalizacionPruebaRequestRecord;
+import ec.gob.imark.catalogo.records.request.PaginationRequestRecord;
 import ec.gob.imark.catalogo.records.response.LocalizacionPruebaResponseRecord;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -55,10 +58,10 @@ public class LocalizacionPruebaQueryControllerImpl implements LocalizacionPrueba
 	* @return List<LocalizacionPruebaResponseRecord>
 	*/
 	@Override
-	public List<LocalizacionPruebaResponseRecord> findAllPaginateLocalizacionPrueba(
-	LocalizacionPruebaRequestRecord localizacionpruebaRequestRecord)
+	public ResponseEntity<Page<LocalizacionPruebaResponseRecord>> findAllPaginateLocalizacionPrueba(
+			PaginationRequestRecord paginationRequestRecord)
 	{
-		return localizacionpruebaQueryService.findAllPaginateLocalizacionPrueba(localizacionpruebaRequestRecord);
+		return ResponseEntity.ok(localizacionpruebaQueryService.findAllPaginateLocalizacionPrueba(paginationRequestRecord));
 	}
 
 	/**

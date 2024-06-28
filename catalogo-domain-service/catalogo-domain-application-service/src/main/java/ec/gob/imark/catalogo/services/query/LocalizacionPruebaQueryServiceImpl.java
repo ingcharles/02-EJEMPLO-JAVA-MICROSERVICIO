@@ -17,12 +17,16 @@
 */
 package ec.gob.imark.catalogo.services.query;
 import ec.gob.imark.catalogo.records.request.LocalizacionPruebaRequestRecord;
+import ec.gob.imark.catalogo.records.request.PaginationRequestRecord;
 import ec.gob.imark.catalogo.records.response.LocalizacionPruebaResponseRecord;
 import ec.gob.imark.catalogo.ports.inputs.query.LocalizacionPruebaQueryService;
 import ec.gob.imark.catalogo.ports.outputs.query.LocalizacionPruebaQueryRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -55,10 +59,11 @@ public class LocalizacionPruebaQueryServiceImpl implements LocalizacionPruebaQue
 	* @return List<LocalizacionPruebaResponseRecord>
 	*/
 	@Override
-	public List<LocalizacionPruebaResponseRecord> findAllPaginateLocalizacionPrueba(
-		LocalizacionPruebaRequestRecord localizacionpruebaRequestRecord)
+	public Page<LocalizacionPruebaResponseRecord> findAllPaginateLocalizacionPrueba(
+			PaginationRequestRecord paginationRequestRecord)
 	{
-		return localizacionpruebaQueryRepository.findAllPaginateLocalizacionPrueba(localizacionpruebaRequestRecord);
+		Pageable pageable = PageRequest.of(paginationRequestRecord.page(), paginationRequestRecord.size());
+		return localizacionpruebaQueryRepository.findAllPaginateLocalizacionPrueba(paginationRequestRecord.search(),pageable);
 	}
 
 	/**

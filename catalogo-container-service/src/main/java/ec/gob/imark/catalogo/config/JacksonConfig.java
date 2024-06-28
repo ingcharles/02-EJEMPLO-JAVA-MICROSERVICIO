@@ -32,10 +32,10 @@ import java.time.format.DateTimeFormatter;
  * @version 1.0.0 $
  * @since 25/6/2024
  */
-@Configuration
+//@Configuration
 public class JacksonConfig {
 
-  @Bean
+  //@Bean
   public ObjectMapper objectMapper() {
     ObjectMapper mapper = new ObjectMapper();
     mapper.registerModule(new JavaTimeModule());

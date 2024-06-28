@@ -25,6 +25,9 @@ import ec.gob.imark.catalogo.messages.MessageSourceUtil;
 import ec.gob.imark.catalogo.ports.outputs.query.LocalizacionPruebaQueryRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -59,12 +62,12 @@ public class LocalizacionPruebaQueryRepositoryImpl implements LocalizacionPrueba
 	* @return List<LocalizacionPruebaResponseRecord>
 	*/
 	@Override
-	public List<LocalizacionPruebaResponseRecord> findAllPaginateLocalizacionPrueba(
-	LocalizacionPruebaRequestRecord localizacionPruebaRequestRecord)
+	public Page<LocalizacionPruebaResponseRecord> findAllPaginateLocalizacionPrueba(String search,
+			Pageable pageable)
 	{
-		return localizacionPruebaJpaRepository.findAllPaginateLocalizacionPrueba(localizacionPruebaRequestRecord.idLocalizacionPrueba())
-		.orElseThrow(() -> new LocalizacionPruebaException(String.format(messageSourceUtil.getMessage("localizacionPrueba.component.exception.notfound"),
-		localizacionPruebaRequestRecord.idLocalizacionPrueba())));
+		return localizacionPruebaJpaRepository.findAllPaginateLocalizacionPrueba(search, pageable);
+		//.orElseThrow(() -> new LocalizacionPruebaException(String.format(messageSourceUtil.getMessage("localizacionPrueba.component.exception.notfound"),
+		//localizacionPruebaRequestRecord.idLocalizacionPrueba())));
 	}
 
 	/**
