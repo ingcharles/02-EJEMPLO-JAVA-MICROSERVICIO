@@ -53,9 +53,7 @@ public interface LocalizacionPruebaJpaRepository extends JpaRepository<Localizac
    * @param LocalizacionPruebaRequestRecord
    * @return List<LocalizacionPruebaResponseRecord>
    */
-  @Query(
-      value =
-          """
+  @Query(value = """
  SELECT new ec.gob.imark.catalogo.records.response.LocalizacionPruebaResponseRecord(t.idLocalizacionPrueba,t.nombreLocalizacionPrueba,t.isLocalizacionPrueba,t.enteroLocalizacionPrueba,t.decimalLocalizacionPrueba,t.descripcionLocalizacionPrueba,t.fechaLocalizacionPrueba,t.estadoLocalizacionPrueba)
  FROM LocalizacionPruebaEntity t
  WHERE (:search IS NULL OR (LOWER(t.nombreLocalizacionPrueba) LIKE LOWER(CONCAT('%', :search, '%')) OR 

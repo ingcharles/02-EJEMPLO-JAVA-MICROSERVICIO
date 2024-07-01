@@ -42,9 +42,9 @@ public interface LocalizacionPruebaQueryRepository
 	*
 	* @name findAllPaginateLocalizacionPrueba
 	* @param LocalizacionPruebaRequestRecord
-	* @return List<LocalizacionPruebaResponseRecord>
+	* @return Page<LocalizacionPruebaResponseRecord>
 	*/
-	 Page<LocalizacionPruebaResponseRecord> findAllPaginateLocalizacionPrueba(@Param("search") String search,
+	 Page<LocalizacionPruebaResponseRecord> findAllPaginateLocalizacionPrueba(String search,
 			 Pageable pageable);
 
 	/**
